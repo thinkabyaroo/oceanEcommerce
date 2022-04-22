@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description')->nullable();
+            $table->unsignedBigInteger('brand_id')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
         });

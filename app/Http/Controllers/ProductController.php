@@ -44,6 +44,8 @@ class ProductController extends Controller
         $product=new Product();
         $product->title=$request->title;
         $product->description =$request->description;
+        $product->brand_id=$request->brand_id;
+        $product->category_id=$request->category_id;
         if ($request->hasFile('photo')){
             $newName="photo_".uniqid().".".$request->file('photo')->extension();
             $request->file('photo')->storeAs('public/photo',$newName);
@@ -96,6 +98,12 @@ class ProductController extends Controller
         }
         if (isset($request->description)){
             $product->description=$request->description;
+        }
+        if (isset($request->brand_id)){
+            $product->brand_id=$request->brand_id;
+        }
+        if (isset($request->category_id)){
+            $product->category_id=$request->category_id;
         }
         if ($request->hasFile('photo')){
             Storage::delete('public/photo/'.$product->photo);

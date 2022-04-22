@@ -26,6 +26,8 @@ class UpdateProductRequest extends FormRequest
         return [
             'title'=>'nullable|min:3',
             'description'=>'nullable|min:20',
+            'brand_id'=>'nullable',
+            'category_id'=>'nullable',
             'photo'=>'nullable|file|mimes:jpeg,png|max:2000'
         ];
     }
